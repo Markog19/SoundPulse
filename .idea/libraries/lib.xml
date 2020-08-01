@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="file://$PATH_TO_FX$" />
+      <root url="file://$USER_HOME$/Downloads/jave2-2.7.3 (1)/jave2-2.7.3/jave-nativebin-win64" />
+      <root url="file://$USER_HOME$/Downloads/jave2-2.7.3 (1)/jave2-2.7.3/jave-nativebin-win64/src/main/resources/ws/schild/jave/nativebin" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PATH_TO_FX$" />
+      <root url="file://$USER_HOME$/Downloads/jave2-2.7.3 (1)/jave2-2.7.3/jave-core-test-java11/src/test/java" />
+      <root url="file://$USER_HOME$/Downloads/jave2-2.7.3 (1)/jave2-2.7.3/jave-core-test/src/test/java" />
+      <root url="file://$USER_HOME$/Downloads/jave2-2.7.3 (1)/jave2-2.7.3/jave-example/src/main/java" />
+    </SOURCES>
+    <jarDirectory url="file://$USER_HOME$/Downloads/jave2-2.7.3 (1)/jave2-2.7.3/jave-nativebin-win64" recursive="false" />
+    <jarDirectory url="file://$USER_HOME$/Downloads/jave2-2.7.3 (1)/jave2-2.7.3/jave-nativebin-win64/src/main/resources/ws/schild/jave/nativebin" recursive="false" />
+    <jarDirectory url="file://$PATH_TO_FX$" recursive="false" />
+    <jarDirectory url="file://$PATH_TO_FX$" recursive="false" type="SOURCES" />
+  </library>
+</component>
