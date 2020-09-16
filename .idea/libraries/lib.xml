@@ -4,6 +4,7 @@
       <root url="file://$PATH_TO_FX$" />
       <root url="file://$USER_HOME$/Downloads/jave2-2.7.3 (1)/jave2-2.7.3/jave-nativebin-win64" />
       <root url="file://$USER_HOME$/Downloads/jave2-2.7.3 (1)/jave2-2.7.3/jave-nativebin-win64/src/main/resources/ws/schild/jave/nativebin" />
+      <root url="file://$USER_HOME$/Desktop/Waveform-Generator/lib" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
@@ -12,6 +13,7 @@
       <root url="file://$USER_HOME$/Downloads/jave2-2.7.3 (1)/jave2-2.7.3/jave-core-test/src/test/java" />
       <root url="file://$USER_HOME$/Downloads/jave2-2.7.3 (1)/jave2-2.7.3/jave-example/src/main/java" />
     </SOURCES>
+    <jarDirectory url="file://$USER_HOME$/Desktop/Waveform-Generator/lib" recursive="false" />
     <jarDirectory url="file://$USER_HOME$/Downloads/jave2-2.7.3 (1)/jave2-2.7.3/jave-nativebin-win64" recursive="false" />
     <jarDirectory url="file://$USER_HOME$/Downloads/jave2-2.7.3 (1)/jave2-2.7.3/jave-nativebin-win64/src/main/resources/ws/schild/jave/nativebin" recursive="false" />
     <jarDirectory url="file://$PATH_TO_FX$" recursive="false" />

@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="frame" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AppController">
+<BorderPane fx:id="frame" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AppController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -36,7 +41,7 @@
                 <MenuItem mnemonicParsing="false" text="Action 1" />
               </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Help">
+            <Menu mnemonicParsing="false" text="Library">
               <items>
                 <MenuItem mnemonicParsing="false" text="Action 1" />
               </items>
@@ -44,32 +49,49 @@
         </menus>
       </MenuBar>
    </top>
-   <bottom>
-      <HBox prefHeight="238.0" prefWidth="1300.0" BorderPane.alignment="CENTER" />
-   </bottom>
    <right>
-      <TitledPane animated="false" text="Friends" BorderPane.alignment="CENTER">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="648.0" prefWidth="180.0" />
-        </content>
-      </TitledPane>
+      <VBox prefHeight="334.0" prefWidth="137.0" BorderPane.alignment="CENTER">
+         <children>
+            <TitledPane fx:id="ScrollPane" animated="false" prefHeight="338.0" prefWidth="138.0" text="Queue">
+               <content>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="298.0" prefWidth="134.0">
+                           <children>
+                              <ListView fx:id="list" layoutX="-2.0" layoutY="6.0" onMouseClicked="#mount" onMouseDragReleased="#addToQueue" prefHeight="291.0" prefWidth="184.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+               </content>
+            </TitledPane>
+         </children>
+      </VBox>
    </right>
    <center>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+   </center>
+   <bottom>
+      <Pane prefHeight="107.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox layoutY="77.0" prefHeight="166.0" prefWidth="620.0" />
-            <HBox fx:id="hbox" layoutY="243.0" onDragDropped="#uploadFile" onDragEntered="#uploadFile" prefHeight="242.0" prefWidth="618.0" />
-            <ToolBar layoutY="-1.0" prefHeight="82.0" prefWidth="621.0">
+            <ProgressBar fx:id="pb" layoutX="169.0" layoutY="64.0" prefHeight="18.0" prefWidth="237.0" progress="0.0" />
+            <ToolBar layoutX="165.0" prefHeight="40.0" prefWidth="235.0">
               <items>
-                <Button mnemonicParsing="false" onAction="#uploadFile" text="Upload" />
-                  <Label fx:id="fileName" prefHeight="18.0" prefWidth="102.0" />
-                  <Button mnemonicParsing="false" onAction="#playButton" text="Play" />
-                  <Button mnemonicParsing="false" onAction="#pause" text="Pause" />
-                  <Button mnemonicParsing="false" onAction="#record" text="Record" />
-                  <Button mnemonicParsing="false" onAction="#finish" text="Stop" />
+                <Button mnemonicParsing="false" onAction="#previous" text="&lt;&lt;" />
+                  <Button mnemonicParsing="false" onAction="#stop" text="Stop" />
+                  <Button fx:id="playBtn" mnemonicParsing="false" onAction="#playButton" text="Play" />
+                  <Button mnemonicParsing="false" onAction="#next" text="&gt;&gt;" />
+                  <Button mnemonicParsing="false" onAction="#openFile" text="Add" />
               </items>
             </ToolBar>
+            <Button layoutX="565.0" layoutY="60.0" mnemonicParsing="false" text="-" />
+            <Button layoutX="415.0" layoutY="61.0" mnemonicParsing="false" text="+" />
+            <Slider fx:id="Slider" layoutX="169.0" layoutY="66.0" prefHeight="14.0" prefWidth="237.0" />
+            <Slider fx:id="volumeSlider" layoutX="451.0" layoutY="67.0" prefHeight="14.0" prefWidth="105.0" />
+            <Text fx:id="songName" layoutX="244.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" />
          </children>
       </Pane>
+   </bottom>
+   <center>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>
