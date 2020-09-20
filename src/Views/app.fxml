@@ -17,81 +17,97 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="frame" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AppController">
-   <top>
-      <MenuBar BorderPane.alignment="CENTER">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Track">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-            <Menu mnemonicParsing="false" text="Options">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-              </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Library">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-              </items>
-            </Menu>
-        </menus>
-      </MenuBar>
-   </top>
-   <right>
-      <VBox prefHeight="334.0" prefWidth="137.0" BorderPane.alignment="CENTER">
-         <children>
-            <TitledPane fx:id="ScrollPane" animated="false" prefHeight="338.0" prefWidth="138.0" text="Queue">
-               <content>
-                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="298.0" prefWidth="134.0">
-                           <children>
-                              <ListView fx:id="list" layoutX="-2.0" layoutY="6.0" onMouseClicked="#mount" onMouseDragReleased="#addToQueue" prefHeight="291.0" prefWidth="184.0" />
-                           </children>
-                        </AnchorPane>
-                    </content>
-                  </ScrollPane>
-               </content>
-            </TitledPane>
-         </children>
-      </VBox>
-   </right>
-   <center>
+<AnchorPane styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AppController">
+   <children>
+      <BorderPane fx:id="frame" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="620.0">
+         <top>
+            <MenuBar styleClass="menubar" BorderPane.alignment="CENTER">
+              <menus>
+                <Menu fx:id="closeMenu" mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem fx:id="closeMenu" mnemonicParsing="false" onAction="#closeApp" text="Close" />
+                        <MenuItem mnemonicParsing="false" onAction="#openFile" text="Add Track" />
+                        <MenuItem mnemonicParsing="false" onAction="#emptyQueue" text="Empty Queue" />
+                  </items>
+                </Menu>
+                <Menu fx:id="closeMenu" mnemonicParsing="false" text="Track">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#playButton" text="Play" />
+                        <MenuItem mnemonicParsing="false" onAction="#stop" text="Stop" />
+                        <MenuItem mnemonicParsing="false" onAction="#random" text="Random" />
+                        <MenuItem mnemonicParsing="false" onAction="#repeat" text="Repeat" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <right>
+            <VBox prefHeight="334.0" prefWidth="137.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TitledPane fx:id="ScrollPane" animated="false" prefHeight="338.0" prefWidth="138.0" styleClass="TitledPane" text="Queue">
+                     <content>
+                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="298.0" prefWidth="134.0">
+                                 <children>
+                                    <ListView fx:id="list" layoutX="-2.0" onMouseClicked="#mount" prefHeight="297.0" prefWidth="184.0" styleClass="listview" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </ScrollPane>
+                     </content>
+                  </TitledPane>
+               </children>
+            </VBox>
+         </right>
+         <center>
    </center>
-   <bottom>
-      <Pane prefHeight="107.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-         <children>
-            <ProgressBar fx:id="pb" layoutX="169.0" layoutY="64.0" prefHeight="18.0" prefWidth="237.0" progress="0.0" />
-            <ToolBar layoutX="165.0" prefHeight="40.0" prefWidth="235.0">
-              <items>
-                <Button mnemonicParsing="false" onAction="#previous" text="&lt;&lt;" />
-                  <Button mnemonicParsing="false" onAction="#stop" text="Stop" />
-                  <Button fx:id="playBtn" mnemonicParsing="false" onAction="#playButton" text="Play" />
-                  <Button mnemonicParsing="false" onAction="#next" text="&gt;&gt;" />
-                  <Button mnemonicParsing="false" onAction="#openFile" text="Add" />
-              </items>
-            </ToolBar>
-            <Button layoutX="565.0" layoutY="60.0" mnemonicParsing="false" text="-" />
-            <Button layoutX="415.0" layoutY="61.0" mnemonicParsing="false" text="+" />
-            <Slider fx:id="Slider" layoutX="169.0" layoutY="66.0" prefHeight="14.0" prefWidth="237.0" />
-            <Slider fx:id="volumeSlider" layoutX="451.0" layoutY="67.0" prefHeight="14.0" prefWidth="105.0" />
-            <Text fx:id="songName" layoutX="244.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-         </children>
-      </Pane>
-   </bottom>
-   <center>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
-   </center>
-</BorderPane>
+         <bottom>
+            <Pane prefHeight="107.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ProgressBar fx:id="pb" layoutX="169.0" layoutY="64.0" prefHeight="18.0" prefWidth="237.0" progress="0.0" styleClass="ProgressBar" />
+                  <ToolBar layoutX="169.0" layoutY="14.0" prefHeight="42.0" prefWidth="237.0" styleClass="toolbar">
+                    <items>
+                      <Button fx:id="PreviousBtn" mnemonicParsing="false" onAction="#previous">
+                           <graphic>
+                              <ImageView fx:id="previousBtnImage" pickOnBounds="true" preserveRatio="true" />
+                           </graphic></Button>
+                        <Button fx:id="StopBtn" mnemonicParsing="false" onAction="#stop">
+                           <graphic>
+                              <ImageView fx:id="stopBtnImage" pickOnBounds="true" preserveRatio="true" />
+                           </graphic></Button>
+                        <Button fx:id="playBtn" maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" onAction="#playButton" stylesheets="@style.css">
+                           <graphic>
+                              <ImageView fx:id="playBtnImage" pickOnBounds="true" preserveRatio="true" />
+                           </graphic></Button>
+                        <Button fx:id="NextBtn" mnemonicParsing="false" onAction="#next">
+                           <graphic>
+                              <ImageView fx:id="nextBtnImage" pickOnBounds="true" preserveRatio="true" />
+                           </graphic></Button>
+                        <Button fx:id="AddBtn" mnemonicParsing="false" onAction="#openFile">
+                           <graphic>
+                              <ImageView fx:id="addBtnImage" pickOnBounds="true" preserveRatio="true" />
+                           </graphic></Button>
+                    </items>
+                  </ToolBar>
+                  <Button fx:id="MuteBtn" layoutX="553.0" layoutY="62.0" mnemonicParsing="false" onAction="#mute">
+                     <graphic>
+                        <ImageView fx:id="muteBtnImage" pickOnBounds="true" preserveRatio="true" />
+                     </graphic></Button>
+                  <Slider fx:id="Slider" layoutX="169.0" layoutY="66.0" prefHeight="14.0" prefWidth="237.0" />
+                  <Slider fx:id="volumeSlider" layoutX="425.0" layoutY="68.0" prefHeight="14.0" prefWidth="105.0" />
+                  <Button fx:id="randomBtn" layoutY="57.0" mnemonicParsing="false" onAction="#random">
+                     <graphic>
+                        <ImageView fx:id="randomBtnImage" pickOnBounds="true" preserveRatio="true" />
+                     </graphic></Button>
+                  <Button fx:id="repeatBtn" layoutX="86.0" layoutY="57.0" mnemonicParsing="false" onAction="#repeat" styleClass="repeatBtn">
+                     <graphic>
+                        <ImageView fx:id="repeatBtnImage" pickOnBounds="true" preserveRatio="true" />
+                     </graphic></Button>
+                  <Text fx:id="songName" fill="WHITE" layoutX="412.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="193.60003662109375" />
+               </children>
+            </Pane>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>

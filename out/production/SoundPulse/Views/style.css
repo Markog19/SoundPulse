@@ -1,0 +1,44 @@
+.background {
+     -fx-background-image: url("background.jpg");
+         -fx-background-repeat: stretch;
+         -fx-background-size: 100% 100%;
+         -fx-background-position: left top;
+}
+.button {
+
+    -fx-border-color:#e2e2e2;
+    -fx-border-width:2;
+    -fx-background-radius:4;
+    -fx-background-color:#e6efff;
+    -fx-font-family:"Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size:10pt;
+    -fx-text-fill:#d8d8d8;
+    -fx-background-insets:0 0 0 0 0 1, 2;
+    -fx-border-radius:5px;
+}
+
+.toolbar {
+    -fx-background-color:#000000;
+}
+
+.label-header {
+    -fx-font-size:32pt;
+    -fx-font-family:"Segoe UI Light";
+    -fx-text-fill:#FFF;
+    -fx-opacity:1;
+}
+
+.menubar {
+    -fx-background-color:#C0C0C0;
+}
+
+.listview {
+    -fx-background-color:#C0C0C0;
+}
+.image
+{
+    -fx-background-size: 30px;
+}
+
+
+

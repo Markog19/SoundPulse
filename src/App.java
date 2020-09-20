@@ -13,8 +13,8 @@ public class App extends Application {
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Views/App.fxml"));
 
-        Scene scene = new Scene(root, 600, 400);
-
+        Scene scene = new Scene(root, 620, 400);
+        primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
