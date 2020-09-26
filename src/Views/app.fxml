@@ -32,8 +32,7 @@
                 </Menu>
                 <Menu fx:id="closeMenu" mnemonicParsing="false" text="Track">
                   <items>
-                    <MenuItem mnemonicParsing="false" onAction="#playButton" text="Play" />
-                        <MenuItem mnemonicParsing="false" onAction="#stop" text="Stop" />
+                        <MenuItem fx:id="stop" mnemonicParsing="false" onAction="#stop" text="Stop" />
                         <MenuItem mnemonicParsing="false" onAction="#random" text="Random" />
                         <MenuItem mnemonicParsing="false" onAction="#repeat" text="Repeat" />
                   </items>

@@ -104,15 +104,15 @@ public class AppController implements Initializable {
     public double d;
     public void openFile() {
         try {
+
             FileChooser fc = new FileChooser();
-            //FileChooser.ExtensionFilter mp3 = new FileChooser.ExtensionFilter("music files","*.mp3", "*.mp4", "*waw");
-            //fc.getExtensionFilters().add(mp3);
+            FileChooser.ExtensionFilter mp3 = new FileChooser.ExtensionFilter("music files","*.mp3", "*.mp4", "*waw");
+            fc.getExtensionFilters().add(mp3);
 
             Window window = null;
             file = fc.showOpenDialog(window);
             int i = file.getName().lastIndexOf(".");
              extension = file.getName().substring(i+1);
-            System.out.println(file.toURI().toString());
         }
         catch(NullPointerException ex ){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -343,6 +343,25 @@ public class AppController implements Initializable {
         player = new MediaPlayer(m);
         playButton();
     }
+    @FXML
+    public void next() {
+        index++;
+        if(index>songs.size()-1) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Error");
+            alert.setContentText("Trenutno svira zadnja pjesma");
+            alert.show();
+            return;
+        }
+        String ime = (String) list.getItems().get(index);
+        currentStatus = MediaPlayer.Status.PAUSED;
+        file = songs.get(ime);
+        player.stop();
+        m = new Media(file.toURI().toString());
+        player = new MediaPlayer(m);
+        System.out.println(currentStatus);
+        playButton();
+    }
     public void resize(ImageView img){
             img.setFitHeight(15);
             img.setFitWidth(15);
@@ -399,25 +418,7 @@ public class AppController implements Initializable {
     }
     }
 
-    @FXML
-    public void next() {
-        index++;
-        if(index>songs.size()-1) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Error");
-            alert.setContentText("Trenutno svira zadnja pjesma");
-            alert.show();
-            return;
-        }
-        String ime = (String) list.getItems().get(index);
-        currentStatus = MediaPlayer.Status.PAUSED;
-        file = songs.get(ime);
-        player.stop();
-        m = new Media(file.toURI().toString());
-        player = new MediaPlayer(m);
-        System.out.println(currentStatus);
-        playButton();
-    }
+
     @FXML
     public void emptyQueue(){
         songs.clear();
